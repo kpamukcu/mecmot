@@ -1,0 +1,1 @@
+<?php new PDO('mysql:host=localhost;dbname=mecmot;charset=UTF8','root',''); ?>
