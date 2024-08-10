@@ -25,12 +25,21 @@ session_start();
 
 <?php require_once('./session.php'); ?>
 
-
-
-
-
-    <!-- Js Files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+<!-- Panel Section Start -->
+<section id="panel">
+    <div class="container-fluid">
+        <div class="row bg-dark py-1">
+            <div class="col-2 text-white">
+                Mecmot Admin Paneli
+            </div>
+            <div class="col-10 text-end">
+                <a href="logout.php" class="text-white">Güvenli Çıkış</a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 bg-dark text-white py-3" style="min-height: 96vh;">
+                Menü
+            </div>
+            <div class="col-md-10 py-3">
