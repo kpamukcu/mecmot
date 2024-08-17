@@ -39,7 +39,8 @@ session_start();
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 bg-dark text-white py-3" style="min-height: 96vh;">
-                Menü
+            <div class="col-md-2 bg-dark text-white py-3 menuAdmin" style="min-height: 96vh;">
+                <a href="dashboard.php" class="menuItem">Başlangıç</a>
+                <a href="kategoriler.php" class="menuItem">Kategoriler</a>
             </div>
             <div class="col-md-10 py-3">

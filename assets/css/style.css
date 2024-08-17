@@ -17,3 +17,14 @@
     color: #fff !important;
     text-decoration: none;
 }
+
+.menuAdmin{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.menuItem{
+    color: #fff;
+    text-decoration: none;
+}
