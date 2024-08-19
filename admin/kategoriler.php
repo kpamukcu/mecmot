@@ -1,4 +1,4 @@
-<?php 
+<?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -35,6 +35,20 @@ require_once('header.php'); ?>
                             <label for="ustKat"><small>Üst Kategori</small></label>
                             <select name="ustKat" id="ustKat" class="form-control mb-2">
                                 <option value="">Seçiniz</option>
+                                <?php
+
+                                $ustKatList = $db->prepare('select DISTINCT katAdi from kategoriler');
+                                $ustKatList->execute();
+
+                                if ($ustKatList->rowCount()) {
+                                    foreach ($ustKatList as $ustKatListSatir) {
+                                ?>
+                                        <option value="<?php echo $ustKatListSatir['katAdi']; ?>"><?php echo $ustKatListSatir['katAdi']; ?></option>
+                                <?php
+                                    }
+                                }
+
+                                ?>
                             </select>
                             <textarea name="aciklama" placeholder="Açıklama (Max.160 Karakter Girin)" class="form-control mb-2" rows="5"></textarea>
                             <label for="gorsel"><small>Kategori Görseli</small></label>
@@ -70,6 +84,52 @@ require_once('header.php'); ?>
     }
     ?>
     <!-- Category Add Module End -->
+
+    <!-- Category List Section Start -->
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Görsel</th>
+                        <th>Kategori Adı</th>
+                        <th>Kategori Türü</th>
+                        <th>Üst Kategorisi</th>
+                        <th>Açıklama</th>
+                        <th>Dil</th>
+                        <th class="text-center">Düzenle / Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    $katList = $db->prepare('select * from kategoriler order by katAdi asc');
+                    $katList->execute();
+
+                    if ($katList->rowCount()) {
+                        foreach ($katList as $katListSatir) {
+                    ?>
+                            <tr>
+                                <td><img src="<?php echo $katListSatir['gorsel']; ?>"></td>
+                                <td><?php echo $katListSatir['katAdi']; ?></td>
+                                <td><?php echo $katListSatir['katTuru']; ?></td>
+                                <td><?php echo $katListSatir['ustKat']; ?></td>
+                                <td><?php echo substr($katListSatir['aciklama'], 0, 99); ?> ...</td>
+                                <td><?php echo $katListSatir['katDili'] ?></td>
+                                <td class="text-center">
+                                    <a href="" class="btn btn-warning">Düzenle</a>
+                                    <a href="" class="btn btn-danger">Sil</a>
+                                </td>
+                            </tr>
+                    <?php
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Category List Section End -->
 
 
 </div>
