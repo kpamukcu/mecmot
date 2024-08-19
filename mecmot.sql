@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: localhost
--- Üretim Zamanı: 17 Ağu 2024, 12:05:12
--- Sunucu sürümü: 10.4.28-MariaDB
--- PHP Sürümü: 8.2.4
+-- Anamakine: 127.0.0.1:3306
+-- Üretim Zamanı: 19 Ağu 2024, 10:54:25
+-- Sunucu sürümü: 8.0.31
+-- PHP Sürümü: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,11 +27,13 @@ SET time_zone = "+00:00";
 -- Tablo için tablo yapısı `admin`
 --
 
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `kadi` varchar(50) NOT NULL,
-  `sifre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `kadi` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `sifre` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `admin`
@@ -47,54 +49,26 @@ INSERT INTO `admin` (`id`, `kadi`, `sifre`) VALUES
 -- Tablo için tablo yapısı `kategoriler`
 --
 
-CREATE TABLE `kategoriler` (
-  `id` int(11) NOT NULL,
-  `katAdi` varchar(50) NOT NULL,
-  `katTuru` varchar(50) NOT NULL,
-  `ustKat` varchar(100) NOT NULL,
-  `aciklama` text NOT NULL,
-  `gorsel` varchar(100) NOT NULL,
-  `katDili` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `kategoriler`;
+CREATE TABLE IF NOT EXISTS `kategoriler` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `katAdi` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `katTuru` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `ustKat` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `aciklama` text COLLATE utf8mb4_general_ci NOT NULL,
+  `gorsel` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `katDili` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `kategoriler`
 --
 
 INSERT INTO `kategoriler` (`id`, `katAdi`, `katTuru`, `ustKat`, `aciklama`, `gorsel`, `katDili`) VALUES
-(1, 'Vidalı Krikolar', 'Üst Kategori', '-', 'Vidalı Kriko Meta Description', '../assets/img/vidali-krikolar-48x48.webp', 'Türkçe');
-
---
--- Dökümü yapılmış tablolar için indeksler
---
-
---
--- Tablo için indeksler `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `kategoriler`
---
-ALTER TABLE `kategoriler`
-  ADD PRIMARY KEY (`id`);
-
---
--- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
---
-
---
--- Tablo için AUTO_INCREMENT değeri `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Tablo için AUTO_INCREMENT değeri `kategoriler`
---
-ALTER TABLE `kategoriler`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+(1, 'Vidalı Krikolar', 'Üst Kategori', '-', 'Vidalı Kriko Meta Description', '../assets/img/vidali-krikolar-48x48.webp', 'Türkçe'),
+(2, 'Yön Değiştiriciler', 'Üst Kategori', '-', 'Yön Değiştiriciler Meta Description', '../assets/img/yon-degistirici.png', 'Türkçe'),
+(3, 'Linear Aktuator', 'Üst Kategori', '-', 'Linear Aktuator Meta Description', '../assets/img/linear-aktuator.png', 'Türkçe');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
