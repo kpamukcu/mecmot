@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 19 Ağu 2024, 10:54:25
+-- Üretim Zamanı: 20 Ağu 2024, 10:40:21
 -- Sunucu sürümü: 8.0.31
 -- PHP Sürümü: 8.0.26
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `kategoriler` (
   `gorsel` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `katDili` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `kategoriler`
@@ -68,7 +68,10 @@ CREATE TABLE IF NOT EXISTS `kategoriler` (
 INSERT INTO `kategoriler` (`id`, `katAdi`, `katTuru`, `ustKat`, `aciklama`, `gorsel`, `katDili`) VALUES
 (1, 'Vidalı Krikolar', 'Üst Kategori', '-', 'Vidalı Kriko Meta Description', '../assets/img/vidali-krikolar-48x48.webp', 'Türkçe'),
 (2, 'Yön Değiştiriciler', 'Üst Kategori', '-', 'Yön Değiştiriciler Meta Description', '../assets/img/yon-degistirici.png', 'Türkçe'),
-(3, 'Linear Aktuator', 'Üst Kategori', '-', 'Linear Aktuator Meta Description', '../assets/img/linear-aktuator.png', 'Türkçe');
+(3, 'Linear Aktuator', 'Üst Kategori', '-', 'Linear Aktuator Meta Description', '../assets/img/linear-aktuator.png', 'Türkçe'),
+(6, 'Mil Hareketli Vidalı Krikolar', 'Alt Kategori', 'Vidalı Krikolar', 'Mil Hareketli Vidalı Krikolar Meta Description', '../assets/img/vidali-kriko-mil-hareketli.png', 'Türkçe'),
+(10, 'Somun Hareketli Vidalı Krikolar (VK-SH)', 'Alt Kategori', 'Vidalı Krikolar', 'Somun Hareketli Vidalı Krikolar (VK-SH) Meta Description', '../assets/img/vidali-kriko-somun-hareketli.png', 'Türkçe'),
+(11, 'MD Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'MD Tipi Yön Değiştiriciler Meta Description', '../assets/img/yon-degistirici-md.png', 'Türkçe');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
