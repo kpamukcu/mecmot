@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3306
--- Üretim Zamanı: 20 Ağu 2024, 10:40:21
+-- Üretim Zamanı: 20 Ağu 2024, 14:05:54
 -- Sunucu sürümü: 8.0.31
 -- PHP Sürümü: 8.0.26
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `kategoriler` (
   `gorsel` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `katDili` varchar(25) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `kategoriler`
@@ -71,7 +71,15 @@ INSERT INTO `kategoriler` (`id`, `katAdi`, `katTuru`, `ustKat`, `aciklama`, `gor
 (3, 'Linear Aktuator', 'Üst Kategori', '-', 'Linear Aktuator Meta Description', '../assets/img/linear-aktuator.png', 'Türkçe'),
 (6, 'Mil Hareketli Vidalı Krikolar', 'Alt Kategori', 'Vidalı Krikolar', 'Mil Hareketli Vidalı Krikolar Meta Description', '../assets/img/vidali-kriko-mil-hareketli.png', 'Türkçe'),
 (10, 'Somun Hareketli Vidalı Krikolar (VK-SH)', 'Alt Kategori', 'Vidalı Krikolar', 'Somun Hareketli Vidalı Krikolar (VK-SH) Meta Description', '../assets/img/vidali-kriko-somun-hareketli.png', 'Türkçe'),
-(11, 'MD Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'MD Tipi Yön Değiştiriciler Meta Description', '../assets/img/yon-degistirici-md.png', 'Türkçe');
+(11, 'MD Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'MD Tipi Yön Değiştiriciler Meta Description', '../assets/img/yon-degistirici-md.png', 'Türkçe'),
+(12, 'MMC Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'MMC Tipi Yön Değiştiriciler Meta Description', '../assets/img/mmc-yon-degistirici.png', 'Türkçe'),
+(13, 'MM Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'MM Tipi Yön Değiştiriciler Meta Description', '../assets/img/mm-yon-degistirici.png', 'Türkçe'),
+(14, 'MH Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'MH Tipi Yön Değiştiriciler', '../assets/img/mh-yon-degistirici.png', 'Türkçe'),
+(15, 'FH Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'FH Tipi Yön Değiştiriciler Meta Description', '../assets/img/fh-yon-degistirici.png', 'Türkçe'),
+(16, 'FD Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'FD Tipi Yön Değiştiriciler Meta Description', '../assets/img/fd-yon-degistirici.png', 'Türkçe'),
+(17, 'FMC Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'FMC Tipi Yön Değiştiriciler', '../assets/img/fmc-yon-degistirici.png', 'Türkçe'),
+(18, 'FM Tipi Yön Değiştiriciler', 'Alt Kategori', 'Yön Değiştiriciler', 'FM Tipi Yön Değiştiriciler Meta Decription', '../assets/img/fm-yon-degistirici.png', 'Türkçe'),
+(19, 'DC Motorlu Linear Aktuatörler (AP-DC)', 'Alt Kategori', 'Linear Aktuator', 'DC Motorlu Linear Aktuatörler (AP-DC) Meta Description', '../assets/img/dc-lineer-aktuator.png', 'Türkçe');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
