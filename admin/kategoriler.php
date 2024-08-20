@@ -3,7 +3,36 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once('header.php'); ?>
+require_once('header.php');
+
+if (isset($_GET['deleteID'])) {
+    $id = $_GET['deleteID'];
+    $delCat = $db->prepare('delete from kategoriler where id=?');
+    $delCat->execute(array($id));
+
+    if ($delCat->rowCount()) {
+        echo '<script>alert("Kategori Silindi")</script>';
+        header('location: kategoriler.php');
+        exit();
+    } else {
+        echo '<script>alert("Hata Oluştu")</script>';
+    }
+} elseif (isset($_GET['updateID'])) {
+    $id = $_GET['updateID'];
+    $upCat = $db->prepare('select * from kategoriler where id=?');
+    $upCat->execute(array($id));
+    $upCatSatir = $upCat->fetch();
+
+    echo "
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+            myModal.show();
+            });
+    </script>
+    ";
+}
+?>
 
 <div class="row">
     <div class="col-md-6">
@@ -37,7 +66,7 @@ require_once('header.php'); ?>
                                 <option value="">Seçiniz</option>
                                 <?php
 
-                                $ustKatList = $db->prepare('select DISTINCT katAdi from kategoriler');
+                                $ustKatList = $db->prepare('select DISTINCT katAdi from kategoriler order by katAdi asc');
                                 $ustKatList->execute();
 
                                 if ($ustKatList->rowCount()) {
@@ -68,6 +97,7 @@ require_once('header.php'); ?>
     <?php
     if (isset($_POST['katEkle'])) {
         $gorsel = '../assets/img/' . $_FILES['gorsel']['name'];
+
         echo $gorsel;
         if (move_uploaded_file($_FILES['gorsel']['tmp_name'], $gorsel)) {
             $katKaydet = $db->prepare('insert into kategoriler(katAdi,katTuru,ustKat,aciklama,gorsel,katDili) values(?,?,?,?,?,?)');
@@ -110,15 +140,15 @@ require_once('header.php'); ?>
                         foreach ($katList as $katListSatir) {
                     ?>
                             <tr>
-                                <td><img src="<?php echo $katListSatir['gorsel']; ?>"></td>
+                                <td><img src="<?php echo $katListSatir['gorsel']; ?>" style="width: 48px;"></td>
                                 <td><?php echo $katListSatir['katAdi']; ?></td>
                                 <td><?php echo $katListSatir['katTuru']; ?></td>
                                 <td><?php echo $katListSatir['ustKat']; ?></td>
                                 <td><?php echo substr($katListSatir['aciklama'], 0, 99); ?> ...</td>
                                 <td><?php echo $katListSatir['katDili'] ?></td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-warning">Düzenle</a>
-                                    <a href="" class="btn btn-danger">Sil</a>
+                                    <a href="kategoriler.php?updateID=<?php echo $katListSatir['id']; ?>" class="btn btn-warning">Düzenle</a>
+                                    <a href="kategoriler.php?deleteID=<?php echo $katListSatir['id']; ?>" class="btn btn-danger">Sil</a>
                                 </td>
                             </tr>
                     <?php
@@ -130,6 +160,84 @@ require_once('header.php'); ?>
         </div>
     </div>
     <!-- Category List Section End -->
+
+    <!-- Category Update Modal Start -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sayfa Yüklendiğinde Gösterilen Modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post" class="form text-start" enctype="multipart/form-data">
+                        <input type="text" name="upkatAdi" value="<?php echo $upCatSatir['katAdi']; ?>" class="form-control mb-2">
+                        <label for="upkatTuru"><small>Kategori Türü</small></label>
+                        <select name="upkatTuru" id="upkatTuru" class="form-control mb-2">
+                            <option value="<?php echo $upCatSatir['katTuru']; ?>"><?php echo $upCatSatir['katTuru']; ?></option>
+                            <option value="Alt Kategori">Alt Kategori</option>
+                            <option value="Üst Kategori">Üst Kategori</option>
+                        </select>
+                        <label for="upustKat"><small>Üst Kategori</small></label>
+                        <select name="upustKat" id="upustKat" class="form-control mb-2">
+                            <option value="<?php echo $upCatSatir['ustKat']; ?>"><?php echo $upCatSatir['ustKat']; ?></option>
+                            <?php
+
+                            $ustKatList = $db->prepare('select DISTINCT katAdi from kategoriler order by katAdi asc');
+                            $ustKatList->execute();
+
+                            if ($ustKatList->rowCount()) {
+                                foreach ($ustKatList as $ustKatListSatir) {
+                            ?>
+                                    <option value="<?php echo $ustKatListSatir['katAdi']; ?>"><?php echo $ustKatListSatir['katAdi']; ?></option>
+                            <?php
+                                }
+                            }
+
+                            ?>
+                        </select>
+                        <textarea name="upaciklama" class="form-control mb-2" rows="5"><?php echo $upCatSatir['aciklama']; ?></textarea>
+                        <label for="gorsel"><small>Kategori Görseli</small></label>
+                        <input type="file" name="upgorsel" id="upgorsel" class="form-control mb-2">
+                        <label>Kategori Dili</label><br>
+                        <input type="radio" name="upkatDili" value="Türkçe"> <small>Türkçe</small>
+                        <input type="radio" name="upkatDili" value="İngilizce"> <small>İngilizce</small>
+                        <input type="hidden" name="upID" value="<?php echo $upCatSatir['id']; ?>">
+                        <input type="submit" value="Kaydet" class="btn btn-success w-100 mt-4" name="katUpdate">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Category Update Modal End -->
+
+    <!-- Category Update Module Start -->
+    <?php
+    if (isset($_POST['katUpdate'])) {
+        $upgorsel = '../assets/img/' . $_FILES['upgorsel']['name'];
+
+        if (move_uploaded_file($_FILES['upgorsel']['tmp_name'], $upgorsel)) {
+            $updateCat = $db->prepare('update kategoriler set katAdi=?, katTuru=?, ustKat=?, aciklama=?, gorsel=?, katDili=? where id=?');
+            $updateCat->execute(array($_POST['upkatAdi'], $_POST['upkatTuru'], $_POST['upustKat'], $_POST['upaciklama'], $upgorsel, $_POST['upkatDili'], $_POST['upID']));
+
+            if ($updateCat->rowCount()) {
+                echo '<script>alert("Kategori Güncellendi")</script><meta http-equiv="refresh" content="0; url=kategoriler.php">';
+            } else {
+                echo '<script>alert("Hata Oluştu")</script><meta http-equiv="refresh" content="0; url=kategoriler.php">';
+            }
+        } else {
+            $updateCat = $db->prepare('update kategoriler set katAdi=?, katTuru=?, ustKat=?, aciklama=?, katDili=? where id=?');
+            $updateCat->execute(array($_POST['upkatAdi'], $_POST['upkatTuru'], $_POST['upustKat'], $_POST['upaciklama'], $_POST['upkatDili'], $_POST['upID']));
+
+            if ($updateCat->rowCount()) {
+                echo '<script>alert("Kategori Güncellendi")</script><meta http-equiv="refresh" content="0; url=kategoriler.php">';
+            } else {
+                echo '<script>alert("Hata Oluştu")</script><meta http-equiv="refresh" content="0; url=kategoriler.php">';
+            }
+        }
+    }
+    ?>
+    <!-- Category Update Module End -->
 
 
 </div>
