@@ -1,0 +1,12 @@
+    <script src="https://cdn.tiny.cloud/1/y8tvirpf6fy2hojhaoj638qkkubvol8bqqxjd0e01o1t2ygz/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons',
+            plugins: [
+                'advlist', 'autolink', 'link', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
+                'media', 'table', 'emoticons', 'help'
+            ]
+        });
+    </script>

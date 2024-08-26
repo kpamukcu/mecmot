@@ -12,6 +12,10 @@ session_start();
     <!-- Css Files -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+
     <title>
         <?php
         $dosyaAdi = basename($_SERVER['SCRIPT_NAME']);
@@ -23,24 +27,25 @@ session_start();
 
 <body>
 
-<?php require_once('./session.php'); ?>
+    <?php require_once('./session.php'); ?>
 
-<!-- Panel Section Start -->
-<section id="panel">
-    <div class="container-fluid">
-        <div class="row bg-dark py-1">
-            <div class="col-2 text-white">
-                Mecmot Admin Paneli
-            </div>
-            <div class="col-10 text-end">
-                <a href="logout.php" class="text-white">Güvenli Çıkış</a>
+    <!-- Panel Section Start -->
+    <section id="panel">
+        <div class="container-fluid">
+            <div class="row bg-dark py-1">
+                <div class="col-2 text-white">
+                    Mecmot Admin Paneli
+                </div>
+                <div class="col-10 text-end">
+                    <a href="logout.php" class="text-white">Güvenli Çıkış</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2 bg-dark text-white py-3 menuAdmin" style="min-height: 96vh;">
-                <a href="dashboard.php" class="menuItem">Başlangıç</a>
-                <a href="kategoriler.php" class="menuItem">Kategoriler</a>
-            </div>
-            <div class="col-md-10 py-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 bg-dark text-white py-3 menuAdmin" style="min-height: 96vh;">
+                    <a href="dashboard.php" class="menuItem">Başlangıç</a>
+                    <a href="kategoriler.php" class="menuItem">Kategoriler</a>
+                    <a href="urunler.php" class="menuItem">Ürünler</a>
+                </div>
+                <div class="col-md-10 py-3">

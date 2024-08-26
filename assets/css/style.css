@@ -30,3 +30,12 @@
 }
 
 tr{vertical-align: middle !important;}
+
+.ck-editor__editable_inline{
+    min-width: 770px;
+    height: 300px;
+}
+
+.ck-balloon-panel {
+    z-index: 1060 !important;
+}
