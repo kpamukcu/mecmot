@@ -33,21 +33,6 @@ tr {
     vertical-align: middle !important;
 }
 
-/* .ck-editor__editable_inline {
-    min-width: 770px;
-    height: 300px;
-}
-
- */
-
-.ck-content {
-    min-width: 100% !important;
-}
-
 .ck-balloon-panel {
     z-index: 1060 !important;
 }
-
-/* #urunler .ck-content:nth-child(1) {
-    height: 350px !important;
-} */

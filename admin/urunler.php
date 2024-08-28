@@ -22,26 +22,74 @@
                     </div>
                     <div class="modal-body">
                         <form action="" method="post" enctype="multipart/form-data" class="row gap-2 p-2" id="urunler">
-                            <input type="text" name="urunAdi" placeholder="Ürün Adını Girin" class="form-control">
-                            <textarea name="content" id="editor1" placeholder="Teknik Özellikler"></textarea>
-                            <script>
-                                ClassicEditor
-                                    .create(document.querySelector('#editor1'))
-                                    .then(editor => {
-                                        editor.ui.view.editable.element.style.height = '200px';
-                                    })
-                                    .catch(error => {
-                                        console.error(error);
-                                    });
-                            </script>
-                            <textarea name="content" id="editor2" placeholder="Teknik Özellikler"></textarea>
-                            <script>
-                                ClassicEditor
-                                    .create(document.querySelector('#editor2'))
-                                    .catch(error => {
-                                        console.error(error);
-                                    });
-                            </script>
+                                <input type="text" name="urunAdi" placeholder="Ürün Adını Girin" class="form-control">
+                                <textarea name="content" id="editor1" placeholder="Teknik Özellikler"></textarea>
+                                <script>
+                                    ClassicEditor
+                                        .create(document.querySelector('#editor1'))
+                                        .then(editor => {
+                                            editor.ui.view.editable.element.style.height = '200px';
+                                            editor.ui.view.element.style.width = '100%';
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                </script>
+                                <textarea name="content" id="editor2" placeholder="Aksesuar ve Açıklamalar"></textarea>
+                                <script>
+                                    ClassicEditor
+                                        .create(document.querySelector('#editor2'))
+                                        .then(editor => {
+                                            editor.ui.view.editable.element.style.height = '200px';
+                                            editor.ui.view.element.style.width = '100%';
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                </script>
+                            <div class="row px-0">
+                                <div class="col-md-6">
+                                    <select name="urunUstKat" class="form-control">
+                                        <option value="">Üst Kategori Seçin</option>
+                                        <?php
+                                        $ustKatSec  = $db->prepare('select DISTINCT ustKat from kategoriler order by ustKat asc');
+                                        $ustKatSec->execute();
+
+                                        if ($ustKatSec->rowCount()) {
+                                            foreach ($ustKatSec as $ustKatSecSatir) {
+                                        ?>
+                                                <option value="<?php echo $ustKatSecSatir['ustKat']; ?>">
+                                                    <?php echo $ustKatSecSatir['ustKat']; ?>
+                                                </option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="urunAltKat" class="form-control">
+                                        <option value="">Alt Kategori Seçin</option>
+                                        <?php
+
+                                        $altKatSec = $db->prepare('select DISTINCT katAdi from kategoriler where katTuru="Alt Kategori" order by katAdi asc');
+                                        $altKatSec->execute();
+
+                                        if ($altKatSec->rowCount()) {
+                                            foreach ($altKatSec as $altKatSecSatir) {
+                                        ?>
+                                                <option value="<?php echo $altKatSecSatir['katAdi']; ?>"><?php echo $altKatSecSatir['katAdi']; ?></option>
+                                        <?php
+                                            }
+                                        }
+
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                .col-md
+                            </div>
                         </form>
                     </div>
                 </div>
