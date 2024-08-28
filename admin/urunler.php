@@ -12,7 +12,8 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -20,10 +21,27 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post" enctype="multipart/form-data" class="row gap-2 p-2">
+                        <form action="" method="post" enctype="multipart/form-data" class="row gap-2 p-2" id="urunler">
                             <input type="text" name="urunAdi" placeholder="Ürün Adını Girin" class="form-control">
-                            <textarea name="content" class="editor editor1" placeholder="Teknik Özellikler"></textarea>
-                            <textarea name="content" class="editor editor1" placeholder="Teknik Özellikler"></textarea>
+                            <textarea name="content" id="editor1" placeholder="Teknik Özellikler"></textarea>
+                            <script>
+                                ClassicEditor
+                                    .create(document.querySelector('#editor1'))
+                                    .then(editor => {
+                                        editor.ui.view.editable.element.style.height = '200px';
+                                    })
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                            </script>
+                            <textarea name="content" id="editor2" placeholder="Teknik Özellikler"></textarea>
+                            <script>
+                                ClassicEditor
+                                    .create(document.querySelector('#editor2'))
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                            </script>
                         </form>
                     </div>
                 </div>

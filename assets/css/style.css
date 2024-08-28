@@ -18,24 +18,36 @@
     text-decoration: none;
 }
 
-.menuAdmin{
+.menuAdmin {
     display: flex;
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
 }
 
-.menuItem{
+.menuItem {
     color: #fff;
     text-decoration: none;
 }
 
-tr{vertical-align: middle !important;}
+tr {
+    vertical-align: middle !important;
+}
 
-.ck-editor__editable_inline{
+/* .ck-editor__editable_inline {
     min-width: 770px;
     height: 300px;
+}
+
+ */
+
+.ck-content {
+    min-width: 100% !important;
 }
 
 .ck-balloon-panel {
     z-index: 1060 !important;
 }
+
+/* #urunler .ck-content:nth-child(1) {
+    height: 350px !important;
+} */
