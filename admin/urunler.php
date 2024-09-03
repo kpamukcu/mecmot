@@ -14,7 +14,7 @@
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Ürün Ekleme</h1>
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                .col-md
+.col-md-6
                             </div>
                         </form>
                     </div>
