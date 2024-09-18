@@ -36,3 +36,9 @@ tr {
 .ck-balloon-panel {
     z-index: 1060 !important;
 }
+
+.formFlex {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
