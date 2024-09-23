@@ -50,6 +50,7 @@ session_start();
                 <div class="col-md-2 bg-dark text-white py-3 menuAdmin" style="min-height: 96vh;">
                     <a href="dashboard.php" class="menuItem">Başlangıç</a>
                     <a href="kategoriler.php" class="menuItem">Kategoriler</a>
+                    <a href="uygulamalar.php" class="menuItem">Uygulamalar</a>
                     <a href="urunler.php" class="menuItem">Ürünler</a>
                 </div>
                 <div class="col-md-10 py-3">
