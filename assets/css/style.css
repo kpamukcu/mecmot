@@ -42,3 +42,12 @@ tr {
     flex-direction: column;
     row-gap: 12px;
 }
+
+.banner {
+    padding: 220px 0px;
+    background-color: #f2f2f2;
+}
+
+#uygulamalar .row {
+    row-gap: 20px;
+}

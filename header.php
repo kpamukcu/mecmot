@@ -9,12 +9,12 @@
     <meta name="description" content="XXXXXXXXXXXXXXXXXXX">
     <!-- Css Files -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Mecmot | XXXXXXXXXX</title>
 </head>
 
 <body>
-    <!-- Header Sectipn Start -->
+    <!-- Header Section Start -->
     <section id="header">
         <div class="container">
             <div class="row">
@@ -80,8 +80,4 @@
             </div>
         </div>
     </section>
-    <!-- Header Sectipn End -->
-
-
-
-
+    <!-- Header Section End -->

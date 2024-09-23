@@ -157,7 +157,7 @@ if (isset($_POST['uygulamaKaydet'])) {
                         <input type="text" name="adi" value="<?php echo $uygulamaSatir['adi']; ?>" class="form-control">
                     </div>
                     <div class="formItem">
-                        <textarea name="aciklama" class="form-control" rows="5"><?php echo $uygulamaSatir['adi']; ?></textarea>
+                        <textarea name="aciklama" class="form-control" rows="5"><?php echo $uygulamaSatir['aciklama']; ?></textarea>
                     </div>
                     <div class="formItem">
                         <label for="">İçerik Dili</label>
