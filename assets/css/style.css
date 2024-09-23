@@ -51,3 +51,12 @@ tr {
 #uygulamalar .row {
     row-gap: 20px;
 }
+
+.foto {
+    position: relative;
+}
+
+.fotoMeta {
+    position: absolute;
+    top: 970px;
+}

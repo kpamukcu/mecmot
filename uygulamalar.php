@@ -24,7 +24,12 @@
                 foreach ($uygulamaList as $uygulamaListSatir) {
             ?>
                     <div class="col-md-4">
-                        <img src="<?php echo substr($uygulamaListSatir['gorsel'], 1); ?>" alt="" class="w-100">
+                        <div class="foto">
+                            <img src="<?php echo substr($uygulamaListSatir['gorsel'], 1); ?>" alt="" class="w-100">
+                        </div>
+                        <div class="fotoMeta">
+                            <h2>Başlık</h2>
+                        </div>
                     </div>
             <?php
                 }
