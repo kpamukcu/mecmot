@@ -40,16 +40,33 @@
                                             Ürünler
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">İkon 1</a></li>
-                                            <li><a class="dropdown-item" href="#">İkon 2</a></li>
-                                            <li><a class="dropdown-item" href="#">İkon 3</a></li>
+                                            <div class="subFlex">
+                                                <div class="item">
+                                                    <a href="#" class="text-center">
+                                                        <img src="./assets/img/vidali-krikolar-48x48.webp" alt="" width="48" class="mb-2">
+                                                        <span class="text-dark">Vidalı Krikolar</span>
+                                                    </a>
+                                                </div>
+                                                <div class="item">
+                                                    <a href="#" class="text-center">
+                                                        <img src="./assets/img/yon-degistirici.png" alt="" class="mb-2"><br>
+                                                        <span class="text-dark">Bevel Gearbox</span>
+                                                    </a>
+                                                </div>
+                                                <div class="item">
+                                                    <a href="#" class="text-center">
+                                                        <img src="./assets/img/linear-aktuator.png" alt="" class="mb-2"><br>
+                                                        <span class="text-dark">Lineer Aktuator</span>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="uygulamalar.php">Uygulamalar</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="cad-verileri.php">CAD Verileri</a>
+                                        <a class="nav-link" href="https://portal.mecmot.com/" target="_blank">CAD Verileri</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="indirilecekler.php">İndirilecekler</a>

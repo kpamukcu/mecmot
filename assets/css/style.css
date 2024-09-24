@@ -3,6 +3,7 @@
 
 * {
     font-family: "Roboto", sans-serif;
+    text-decoration: none !important;
 }
 
 .w-60 {
@@ -91,3 +92,29 @@ tr {
     font-size: 26px !important;
     text-align: center;
 }
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.subFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 8px 20px;
+    text-align: 13px;
+}
+
+.item {
+    text-align: center !important;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+/* #header .show {
+    padding: 10px 25px !important;
+} */
