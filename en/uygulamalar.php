@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1>Uygulamalar</h1>
+                <h1>Applications</h1>
             </div>
         </div>
     </div>
@@ -17,14 +17,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <?php
-            $uygulamaList = $db->prepare('select * from uygulamalar where dil="Türkçe" order by adi asc');
+            $uygulamaList = $db->prepare('select * from uygulamalar where dil="İngilizce" order by adi asc');
             $uygulamaList->execute();
 
             if ($uygulamaList->rowCount()) {
                 foreach ($uygulamaList as $uygulamaListSatir) {
             ?>
                     <div class="apps">
-                        <img src="<?php echo substr($uygulamaListSatir['gorsel'], 1); ?>" alt="">
+                        <img src="<?php echo $uygulamaListSatir['gorsel']; ?>" alt="">
                         <div class="fotoMeta">
                             <h2 class="text"><?php echo $uygulamaListSatir['adi']; ?></h2><br>
                             <p class="text"><?php echo $uygulamaListSatir['aciklama']; ?></p>
