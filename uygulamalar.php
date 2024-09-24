@@ -15,7 +15,7 @@
 <!-- Uygulamalar Content Section Start -->
 <section id="uygulamalar" class="py-5">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <?php
             $uygulamaList = $db->prepare('select * from uygulamalar order by adi asc');
             $uygulamaList->execute();
@@ -23,19 +23,17 @@
             if ($uygulamaList->rowCount()) {
                 foreach ($uygulamaList as $uygulamaListSatir) {
             ?>
-                    <div class="col-md-4">
-                        <div class="foto">
-                            <img src="<?php echo substr($uygulamaListSatir['gorsel'], 1); ?>" alt="" class="w-100">
-                        </div>
+                    <div class="apps">
+                        <img src="<?php echo substr($uygulamaListSatir['gorsel'], 1); ?>" alt="">
                         <div class="fotoMeta">
-                            <h2>Başlık</h2>
+                            <h2 class="text"><?php echo $uygulamaListSatir['adi']; ?></h2><br>
+                            <p class="text"><?php echo $uygulamaListSatir['aciklama']; ?></p>
                         </div>
                     </div>
             <?php
                 }
             }
             ?>
-
         </div>
     </div>
 </section>
