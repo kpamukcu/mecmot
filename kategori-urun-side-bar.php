@@ -12,7 +12,7 @@
         ?>
                 <div class="btn-group">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Large button
+                        <?php echo $vkSatir['katAdi']; ?>
                     </a>
                     <ul class="dropdown-menu">
                         ...
