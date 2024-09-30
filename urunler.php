@@ -1,30 +1,18 @@
 <?php require_once('header.php'); ?>
 
-<!-- Product Groups Section Start -->
-<section id="products">
+<?php require_once('products-menu.php') ?>
+
+<div id="productsBody">
     <div class="container">
         <div class="row">
-            <a href="">
-                <div class="box">
-                    <img src="./assets/img/vidali-krikolar-48x48.webp" alt="Vidalı Krikolar">
-                    <span>Vidalı Krikolar</span>
-                </div>
-            </a>
-            <a href="">
-                <div class="box">
-                    <img src="./assets/img/vidali-krikolar-48x48.webp" alt="Vidalı Krikolar">
-                    <span>Vidalı Krikolar</span>
-                </div>
-            </a>
-            <a href="">
-                <div class="box">
-                    <img src="./assets/img/vidali-krikolar-48x48.webp" alt="Vidalı Krikolar">
-                    <span>Vidalı Krikolar</span>
-                </div>
-            </a>
+            <?php require_once('kategori-urun-side-bar.php') ?>
+            <div class="col-md-8">
+                İçerik
+            </div>
         </div>
     </div>
-</section>
-<!-- Product Groups Section End -->
+</div>
+
+
 
 <?php require_once('footer.php'); ?>
