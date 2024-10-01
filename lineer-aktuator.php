@@ -2,7 +2,7 @@
 
 <?php require_once('products-menu.php') ?>
 
-<div id="productsBody">
+<div id="productsBody" class="py-5">
     <div class="container">
         <div class="row">
             <?php require_once('kategori-urun-side-bar.php') ?>
