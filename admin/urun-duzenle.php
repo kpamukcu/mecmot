@@ -155,7 +155,7 @@ if (isset($_POST['urunGuncelle'])) {
         } else {
             echo '
             <script>
-            alert("Hata Oluştu")
+            alert("Dosya Yüklendi ama Hata Oluştu")
             window.location.href = "urunler.php"
             </script>
             ';
